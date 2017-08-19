@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "15699191476",
+    "firebase_url": "https://kelebek-59bda.firebaseio.com",
+    "project_id": "kelebek-59bda",
+    "storage_bucket": "kelebek-59bda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15699191476:android:d411f622c4238de3",
+        "android_client_info": {
+          "package_name": "com.example.admin.geofencelocation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15699191476-jms1gjhk7citfr47kuag3778ov2n8bnj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.admin.geofencelocation",
+            "certificate_hash": "f888a25c6ef44c650b192b85d21c110effbd675a"
+          }
+        },
+        {
+          "client_id": "15699191476-4jeg1j3umja015feei3ejm682es63bk0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn_P-cqlTlg3MUxJsF0SyTBFjluiE3rhQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15699191476-4jeg1j3umja015feei3ejm682es63bk0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
