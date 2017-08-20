@@ -74,43 +74,7 @@ public class ActionBarDemoActivity extends YouTubeFailureRecoveryActivity implem
 
 
     Log.d("Yusuf", "onCreate: ");
-    if(getIntent().getExtras() != null) {
-        final String location = getIntent().getExtras().getString("location");
-        Log.d("Yusuf", "onCreate: location is " + location);
 
-
-
-
-        DatabaseReference oku = FirebaseDatabase.getInstance().getReference().child("konumlar");
-        ValueEventListener listener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                long size = dataSnapshot.getChildrenCount();
-                int kayit=1;
-
-                for (int i = 1; i <= size; i++) {
-                    String holdName = dataSnapshot.child("" + i).child("isim").getValue(String.class);
-                    if (holdName.equals(location))  {
-                        kayit=i;
-                        break;
-                    }
-                }
-
-                String youtube = dataSnapshot.child("" + kayit).child("link").getValue(String.class);
-                oynat=youtube;
-                Log.d("Yusuf", "BBBBBBBBBBBBBBBBB " + youtube);
-
-
-
-            };
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };oku.addListenerForSingleValueEvent(listener);
-
-    }
 
 
 
@@ -127,15 +91,57 @@ public class ActionBarDemoActivity extends YouTubeFailureRecoveryActivity implem
   }
 
   @Override
-  public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player,
+  public void onInitializationSuccess(YouTubePlayer.Provider provider, final YouTubePlayer player,
                                       boolean wasRestored) {
-    player.addFullscreenControlFlag(YouTubePlayer.FULLSCREEN_FLAG_CUSTOM_LAYOUT);
-    player.setOnFullscreenListener(this);
 
 
-        Log.d("Yusuf", "CCCCCCCCCCCCCCCCCCCC " + oynat);
+          final String location = getIntent().getExtras().getString("location");
+          Log.d("Yusuf", "onCreate: location is " + location);
 
-      player.cueVideo(oynat);
+
+
+
+          DatabaseReference oku = FirebaseDatabase.getInstance().getReference().child("konumlar");
+          ValueEventListener listener = new ValueEventListener() {
+              @Override
+              public void onDataChange(DataSnapshot dataSnapshot) {
+                  long size = dataSnapshot.getChildrenCount();
+                  int kayit=1;
+
+                  for (int i = 1; i <= size; i++) {
+                      String holdName = dataSnapshot.child("" + i).child("isim").getValue(String.class);
+                      if (holdName.equals(location))  {
+                          kayit=i;
+                          break;
+                      }
+                  }
+
+                  String youtube = dataSnapshot.child("" + kayit).child("link").getValue(String.class);
+                  oynat=youtube;
+                  Log.d("Yusuf", "BBBBBBBBBBBBBBBBB " + youtube);
+
+                  player.addFullscreenControlFlag(YouTubePlayer.FULLSCREEN_FLAG_CUSTOM_LAYOUT);
+                  player.setOnFullscreenListener(ActionBarDemoActivity.this);
+                  Log.d("Yusuf", "CCCCCCCCCCCCCCCCCCCC " + oynat);
+                  player.cueVideo(oynat);
+
+
+
+              };
+
+              @Override
+              public void onCancelled(DatabaseError databaseError) {
+
+              }
+          };oku.addListenerForSingleValueEvent(listener);
+
+
+
+
+
+
+
+
 
 
   }

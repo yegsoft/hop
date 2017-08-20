@@ -130,21 +130,6 @@ public class TrabzonMap extends AppCompatActivity implements
                 Log.d("holdlat"," "+holdLat);
                 Log.d("holdlng"," "+holdLng);
 
-                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                SharedPreferences.Editor editor = preferences.edit();
-
-                editor.putString("mekan",zone);
-                editor.putFloat("latitude",lat);
-                editor.putFloat("longitude",lng);
-                editor.commit();
-
-
-                Map<String,?> keys = preferences.getAll();
-
-                for(Map.Entry<String,?> entry : keys.entrySet()){
-                    Log.d("map values",entry.getKey() + ": " +
-                            entry.getValue().toString());
-                }
 
 
 
