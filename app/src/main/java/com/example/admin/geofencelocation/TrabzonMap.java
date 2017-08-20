@@ -43,6 +43,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static android.R.attr.value;
 
@@ -69,10 +70,6 @@ public class TrabzonMap extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trabzonmaplay);
-
-
-
-
 
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -128,12 +125,26 @@ public class TrabzonMap extends AppCompatActivity implements
                 }
                 float holdLat = dataSnapshot.child("" + kayit).child("latitude").getValue(float.class);
                 float holdLng = dataSnapshot.child("" + kayit).child("longitude").getValue(float.class);
-                String youtube = dataSnapshot.child("" + kayit).child("link").getValue(String.class);
                 lat=holdLat;
                 lng=holdLng;
-                track=youtube;
                 Log.d("holdlat"," "+holdLat);
                 Log.d("holdlng"," "+holdLng);
+
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                SharedPreferences.Editor editor = preferences.edit();
+
+                editor.putString("mekan",zone);
+                editor.putFloat("latitude",lat);
+                editor.putFloat("longitude",lng);
+                editor.commit();
+
+
+                Map<String,?> keys = preferences.getAll();
+
+                for(Map.Entry<String,?> entry : keys.entrySet()){
+                    Log.d("map values",entry.getKey() + ": " +
+                            entry.getValue().toString());
+                }
 
 
 
@@ -146,6 +157,8 @@ public class TrabzonMap extends AppCompatActivity implements
                         .title("Akçaabat Horonu")
                         .snippet("Akçaabat")
                         .visible(true));
+
+
 
 
                 LatLngBounds bounds = new LatLngBounds.Builder()
@@ -181,7 +194,7 @@ public class TrabzonMap extends AppCompatActivity implements
 
 
             Intent in = new Intent(this, ActionBarDemoActivity.class);
-            String intToSend = track;
+            String intToSend = zone;
             in.putExtra("location", intToSend);
             startActivity(in);
             mSelectedMarker = null;

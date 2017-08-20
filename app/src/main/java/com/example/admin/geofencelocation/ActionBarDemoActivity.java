@@ -20,16 +20,29 @@ import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerFragment;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Map;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -61,22 +74,45 @@ public class ActionBarDemoActivity extends YouTubeFailureRecoveryActivity implem
 
 
     Log.d("Yusuf", "onCreate: ");
-    if(getIntent().getExtras() != null){
-      String location = getIntent().getExtras().getString("location");
-      Log.d("Yusuf", "onCreate: location is "+location);
+    if(getIntent().getExtras() != null) {
+        final String location = getIntent().getExtras().getString("location");
+        Log.d("Yusuf", "onCreate: location is " + location);
 
-        if (location.equals("Hamsiköy")) {
-            oynat="pQsZ4homq-Q";
-        } else if (location.equals("Maçka")) {
-            oynat="yekyXM7tO34";
-        } else if (location.equals("Tonya"))  {
-            oynat="hneU6fj0V5M";
-        } else if (location.equals("Akçaabat"))  {
-            oynat="jiYkUaJMW6U";
-        } else if (location.equals("Sürmene"))  {
-            oynat="t6hNicK_OdQ";
-        }
+
+
+
+        DatabaseReference oku = FirebaseDatabase.getInstance().getReference().child("konumlar");
+        ValueEventListener listener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                long size = dataSnapshot.getChildrenCount();
+                int kayit=1;
+
+                for (int i = 1; i <= size; i++) {
+                    String holdName = dataSnapshot.child("" + i).child("isim").getValue(String.class);
+                    if (holdName.equals(location))  {
+                        kayit=i;
+                        break;
+                    }
+                }
+
+                String youtube = dataSnapshot.child("" + kayit).child("link").getValue(String.class);
+                oynat=youtube;
+                Log.d("Yusuf", "BBBBBBBBBBBBBBBBB " + youtube);
+
+
+
+            };
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };oku.addListenerForSingleValueEvent(listener);
+
     }
+
+
 
 
     viewContainer = (ActionBarPaddedFrameLayout) findViewById(R.id.view_container);
@@ -96,11 +132,12 @@ public class ActionBarDemoActivity extends YouTubeFailureRecoveryActivity implem
     player.addFullscreenControlFlag(YouTubePlayer.FULLSCREEN_FLAG_CUSTOM_LAYOUT);
     player.setOnFullscreenListener(this);
 
-    if (!wasRestored) {
+
+        Log.d("Yusuf", "CCCCCCCCCCCCCCCCCCCC " + oynat);
 
       player.cueVideo(oynat);
 
-    }
+
   }
 
   @Override
