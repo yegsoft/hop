@@ -146,10 +146,10 @@ public class GeofenceReciever extends BroadcastReceiver {
     private Notification createNotification(String msg, PendingIntent notificationPendingIntent) {
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(contextBootReceiver);
         notificationBuilder
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setColor(Color.RED)
+                .setSmallIcon(R.drawable.ic_pin_drop_black_24dp)
+                .setColor(Color.GREEN)
                 .setContentTitle(msg)
-                .setContentText("My Notification!")
+                .setContentText("Haritada görmek için dokunun")
                 .setContentIntent(notificationPendingIntent)
                 .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_VIBRATE | Notification.DEFAULT_SOUND)
                 .setAutoCancel(true);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Şehirler">
+    <item android:title="Seçim yapınız">
         <menu>
         <item
             android:id="@+id/nav_search"
@@ -9,29 +9,12 @@
             android:title="Çevreyi tara" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:icon="@drawable/ic_queue_music_black_24dp"
+            android:title="Keşfedilen şarkılar" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-        </menu>
-    </item>
-
-    <item android:title="Geçmiş">
-        <menu>
-            <item
-                android:id="@+id/nav_track"
-                android:icon="@drawable/ic_menu_track"
-                android:title="Keşfedilen parçalar" />
-            <item
-                android:id="@+id/nav_area"
-                android:icon="@drawable/ic_menu_area"
-                android:title="Keşfedilen bölgeler" />
+            android:icon="@drawable/ic_transfer_within_a_station_black_24dp"
+            android:title="En son nerede keşfettim" />
         </menu>
     </item>
 

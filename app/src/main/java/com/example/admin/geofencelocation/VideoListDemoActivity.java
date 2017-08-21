@@ -54,8 +54,10 @@ import com.google.android.youtube.player.YouTubeThumbnailView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -87,6 +89,8 @@ public final class VideoListDemoActivity extends Activity implements OnFullscree
   private boolean isFullscreen;
     static String link;
 
+    private static final String TAG = "VideoListDemoActivity";
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -98,17 +102,28 @@ public final class VideoListDemoActivity extends Activity implements OnFullscree
 
       ArrayList<String> myAList=new ArrayList<String>();
       int size=sPrefs.getInt("size",0);
+      String alinan = sPrefs.getString("deger","yok");
 
-      for(int j=0;j<size;j++)
-      {
-          myAList.add(sPrefs.getString("val"+j,"yok"));
-          Log.d("Yusuf", "DDDDDDDDDDDDDDDDDD " + myAList);
-      }
 
-      link=myAList.get(0);
+
+
+      Log.d("Yusuf", "ttttttttttttttttt " + alinan);
+
+      myAList.add(alinan);
+      String a = myAList.get(size-1);
+      Log.d(TAG, "EEEEEEEEEEEEEEE " + a);
+      Log.d(TAG, "DDDDDDDDDDDDDDDDDD " + myAList);
+
+
+      link=a;
       Log.d("Yusuf", "yyyyyyyyyyyyyyyyyyy " + link);
 
 
+      Set<String> degerler = sPrefs.getStringSet("degerler", new HashSet<String>());
+      degerler.add(a);
+
+      sEdit.putStringSet("degerler",degerler);
+      sEdit.commit();
 
 
 
@@ -118,6 +133,9 @@ public final class VideoListDemoActivity extends Activity implements OnFullscree
     listFragment = (VideoListFragment) getFragmentManager().findFragmentById(R.id.list_fragment);
     videoFragment =
         (VideoFragment) getFragmentManager().findFragmentById(R.id.video_fragment_container);
+
+
+
 
     videoBox = findViewById(R.id.video_box);
     closeButton = findViewById(R.id.close_button);
@@ -225,30 +243,39 @@ public final class VideoListDemoActivity extends Activity implements OnFullscree
     }
   }
 
-  /**
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try{
+            SharedPreferences sPrefs= PreferenceManager.getDefaultSharedPreferences(VideoListDemoActivity.this);
+            Set<String> degerler = sPrefs.getStringSet("degerler", new HashSet<String>());
+            for(String v : degerler)
+                ((PageAdapter)listFragment.getListAdapter()).addItem(new VideoEntry("YouTube Collection", v));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
    * A fragment that shows a static list of videos.
    */
   public static final class VideoListFragment extends ListFragment {
 
-
-
-
-
-
-    private static final List<VideoEntry> VIDEO_LIST;
-    static {
-      List<VideoEntry> list = new ArrayList<VideoEntry>();
-
-
-
-
-
-
-        list.add(new VideoEntry("YouTube Collection", link));
-
-
-      VIDEO_LIST = Collections.unmodifiableList(list);
-    }
+    private List<VideoEntry> VIDEO_LIST = new ArrayList<>();
+//    static {
+//      List<VideoEntry> list = new ArrayList<VideoEntry>();
+//
+//
+//
+//
+//        Log.d("Yusuf", "ppppppppppppppp " + link);
+//        list.add(new VideoEntry("YouTube Collection", link));
+//
+//
+//
+//
+//      VIDEO_LIST = Collections.unmodifiableList(list);
+//    }
 
     private PageAdapter adapter;
     private View videoBox;
@@ -328,6 +355,11 @@ public final class VideoListDemoActivity extends Activity implements OnFullscree
       thumbnailListener = new ThumbnailListener();
 
       labelsVisible = true;
+    }
+
+    public void addItem(VideoEntry videoEntry){
+        entries.add(videoEntry);
+        notifyDataSetChanged();
     }
 
     public void releaseLoaders() {

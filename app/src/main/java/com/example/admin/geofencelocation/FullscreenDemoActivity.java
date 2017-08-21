@@ -125,20 +125,21 @@ public class FullscreenDemoActivity extends YouTubeFailureRecoveryActivity imple
               // Specify that we want to handle fullscreen behavior ourselves.
               player.addFullscreenControlFlag(YouTubePlayer.FULLSCREEN_FLAG_CUSTOM_LAYOUT);
               player.setOnFullscreenListener(FullscreenDemoActivity.this);
-              if (!wasRestored) {
+
                   player.cueVideo(oynat);
-              }
+
 
               myArrayList.add(oynat);
-
+              int uzunluk=myArrayList.size();
 
               SharedPreferences sPrefs= PreferenceManager.getDefaultSharedPreferences(FullscreenDemoActivity.this);
               SharedPreferences.Editor sEdit=sPrefs.edit();
 
-              for(int i=0;i<myArrayList.size();i++)
-              {
-                  sEdit.putString("val"+i,myArrayList.get(i));
-              }
+              String a = myArrayList.get(uzunluk-1);
+
+              Log.d("Yusuf", "uuuuuuuuu " + a);
+
+              sEdit.putString("deger",myArrayList.get(uzunluk-1));
               sEdit.putInt("size",myArrayList.size());
               sEdit.commit();
 

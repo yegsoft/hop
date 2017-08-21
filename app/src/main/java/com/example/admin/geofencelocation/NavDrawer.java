@@ -124,19 +124,13 @@ public class NavDrawer extends AppCompatActivity
 
         } else if (id == R.id.nav_gallery) {
 
-            Intent intent = new Intent(this, TrabzonMap.class);
+            Intent intent = new Intent(this, VideoListDemoActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_slideshow) {
 
-            Intent intent = new Intent(this, VideoListDemoActivity.class);
+            Intent intent = new Intent(this, TrabzonMap.class);
             startActivity(intent);
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_track) {
-
-        } else if (id == R.id.nav_area) {
 
         }
 
