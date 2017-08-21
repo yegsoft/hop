@@ -262,20 +262,6 @@ public final class VideoListDemoActivity extends Activity implements OnFullscree
   public static final class VideoListFragment extends ListFragment {
 
     private List<VideoEntry> VIDEO_LIST = new ArrayList<>();
-//    static {
-//      List<VideoEntry> list = new ArrayList<VideoEntry>();
-//
-//
-//
-//
-//        Log.d("Yusuf", "ppppppppppppppp " + link);
-//        list.add(new VideoEntry("YouTube Collection", link));
-//
-//
-//
-//
-//      VIDEO_LIST = Collections.unmodifiableList(list);
-//    }
 
     private PageAdapter adapter;
     private View videoBox;
