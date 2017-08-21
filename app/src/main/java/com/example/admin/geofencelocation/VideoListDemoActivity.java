@@ -22,9 +22,12 @@ import android.app.Activity;
 import android.app.ListFragment;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -82,12 +85,35 @@ public final class VideoListDemoActivity extends Activity implements OnFullscree
   private View closeButton;
 
   private boolean isFullscreen;
+    static String link;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.video_list_demo);
+
+      SharedPreferences sPrefs= PreferenceManager.getDefaultSharedPreferences(VideoListDemoActivity.this);
+      SharedPreferences.Editor sEdit=sPrefs.edit();
+
+      ArrayList<String> myAList=new ArrayList<String>();
+      int size=sPrefs.getInt("size",0);
+
+      for(int j=0;j<size;j++)
+      {
+          myAList.add(sPrefs.getString("val"+j,"yok"));
+          Log.d("Yusuf", "DDDDDDDDDDDDDDDDDD " + myAList);
+      }
+
+      link=myAList.get(0);
+      Log.d("Yusuf", "yyyyyyyyyyyyyyyyyyy " + link);
+
+
+
+
+
+
+
 
     listFragment = (VideoListFragment) getFragmentManager().findFragmentById(R.id.list_fragment);
     videoFragment =
@@ -204,16 +230,23 @@ public final class VideoListDemoActivity extends Activity implements OnFullscree
    */
   public static final class VideoListFragment extends ListFragment {
 
+
+
+
+
+
     private static final List<VideoEntry> VIDEO_LIST;
     static {
       List<VideoEntry> list = new ArrayList<VideoEntry>();
-      list.add(new VideoEntry("YouTube Collection", "Y_UmWdcTrrc"));
-      list.add(new VideoEntry("GMail Tap", "1KhZKNZO8mQ"));
-      list.add(new VideoEntry("Chrome Multitask", "UiLSiqyDf4Y"));
-      list.add(new VideoEntry("Google Fiber", "re0VRK6ouwI"));
-      list.add(new VideoEntry("Autocompleter", "blB_X38YSxQ"));
-      list.add(new VideoEntry("GMail Motion", "Bu927_ul_X0"));
-      list.add(new VideoEntry("Translate for Animals", "3I24bSteJpw"));
+
+
+
+
+
+
+        list.add(new VideoEntry("YouTube Collection", link));
+
+
       VIDEO_LIST = Collections.unmodifiableList(list);
     }
 

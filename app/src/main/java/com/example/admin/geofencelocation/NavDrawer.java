@@ -41,7 +41,7 @@ public class NavDrawer extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Staj projesi          Yusuf Erhan Göz          Turkcell          2017", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });

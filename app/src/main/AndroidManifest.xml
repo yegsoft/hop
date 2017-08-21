@@ -59,7 +59,9 @@
         </activity>
         <activity
             android:name=".TrabzonMap"
-            android:label="@string/marker_close_info_window_on_retap_demo_label">
+            android:label="@string/marker_close_info_window_on_retap_demo_label"
+            android:theme="@style/AppTheme">
+
         </activity>
 
         <service

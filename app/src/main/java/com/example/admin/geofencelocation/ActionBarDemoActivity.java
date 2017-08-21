@@ -28,6 +28,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -42,6 +43,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
@@ -63,6 +65,7 @@ public class ActionBarDemoActivity extends YouTubeFailureRecoveryActivity implem
   private ActionBarPaddedFrameLayout viewContainer;
   private YouTubePlayerFragment playerFragment;
   private View tutorialTextView;
+    ArrayList<String> myArrayList=new ArrayList<String>();
 
     String oynat;
 
@@ -125,6 +128,18 @@ public class ActionBarDemoActivity extends YouTubeFailureRecoveryActivity implem
                   Log.d("Yusuf", "CCCCCCCCCCCCCCCCCCCC " + oynat);
                   player.cueVideo(oynat);
 
+                  myArrayList.add(oynat);
+
+
+                  SharedPreferences sPrefs=PreferenceManager.getDefaultSharedPreferences(ActionBarDemoActivity.this);
+                  SharedPreferences.Editor sEdit=sPrefs.edit();
+
+                  for(int i=0;i<myArrayList.size();i++)
+                  {
+                      sEdit.putString("val"+i,myArrayList.get(i));
+                  }
+                  sEdit.putInt("size",myArrayList.size());
+                  sEdit.commit();
 
 
               };
