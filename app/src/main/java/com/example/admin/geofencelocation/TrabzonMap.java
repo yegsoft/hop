@@ -178,7 +178,7 @@ public class TrabzonMap extends AppCompatActivity implements
             track=marker.getSnippet();
 
 
-            Intent in = new Intent(this, ActionBarDemoActivity.class);
+            Intent in = new Intent(this, FullscreenDemoActivity.class);
             String intToSend = zone;
             in.putExtra("location", intToSend);
             startActivity(in);

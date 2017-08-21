@@ -154,11 +154,6 @@ public class ActionBarDemoActivity extends YouTubeFailureRecoveryActivity implem
 
 
 
-
-
-
-
-
   }
 
   @Override

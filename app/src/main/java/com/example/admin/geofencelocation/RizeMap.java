@@ -154,7 +154,7 @@ public class RizeMap extends AppCompatActivity implements
     public boolean onMarkerClick(final Marker marker) {
         // The user has re-tapped on the marker which was already showing an info window.
         if (marker.equals(mSelectedMarker)) {
-            Intent intent = new Intent(this, ActionBarDemoActivity.class);
+            Intent intent = new Intent(this, FullscreenDemoActivity.class);
             startActivity(intent);
             // The showing info window has already been closed - that's the first thing to happen
             // when any marker is clicked.

@@ -48,6 +48,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:label="@string/fullscreen_demo_name"
+            android:name=".FullscreenDemoActivity"
+            android:screenOrientation="sensor"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/BlackNoTitleBarTheme">
+            <intent-filter>
+                <action android:name="full"/>
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ActionBarDemoActivity"
             android:label="@string/action_bar_demo_name"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -57,6 +67,7 @@
                 <action android:name="actionbar"/>
             </intent-filter>
         </activity>
+
         <activity
             android:name=".TrabzonMap"
             android:label="@string/marker_close_info_window_on_retap_demo_label"
