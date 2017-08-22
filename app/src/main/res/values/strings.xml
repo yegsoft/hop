@@ -51,9 +51,11 @@
     <string name="youtube_currently_installed">YouTube version installed on this device: <xliff:g id="youtube_version">%1$s</xliff:g>.</string>
     <string name="youtube_not_installed">YouTube is not installed on this device.</string>
 
-    <string name="fullscreen_tutorial">This is a demo which shows how to handle fullscreen behaviour. This activity has differents layouts for portrait, landscape and fullscreen. The user can enter fullscreen either by using the player controller or programmatically by the programmer (here using a button). If your activity does not have a landscape layout, you can choose to automatically enter fullscreen when the device is rotated to landscape orientation.</string>
-    <string name="enter_fullscreen">Enter Fullscreen</string>
-    <string name="landscape_fullscreen">Always fullscreen in landscape</string>
+    <string name="fullscreen_tutorial">\r\n\r\n\r\n\r\nMesnevi’yi şerhedenlerin çoğu bu ölümsüz eserin “b” harfiyle başladığına dikkat çeker.
+        İlk kelimesi “Bişnev!”dir. Yani “Dinle!” Tesadüf mü dersin ismi “Suskun” olan bir şairin en kıymetli yapıtına “Dinle!” diye başlaması.
+        Sahi, sessizlik dinlenebilir mi?\r\n\r\n\r\n\r\n</string>
+    <string name="enter_fullscreen">Doğrudan tam ekrana geç</string>
+    <string name="landscape_fullscreen">Telefon yatay konumdayken tam ekrana geç</string>
 
     <string name="actionbar_tutorial">This is a demo which shows how to use the ActionBar as an overlay when the video is playing in fullscreen. The actionbar will automatically fade away along with the player controls when the video is being played in fullscreen. While not in fullscreen the Actionbar is visible and does not overlay any of the views.</string>
 

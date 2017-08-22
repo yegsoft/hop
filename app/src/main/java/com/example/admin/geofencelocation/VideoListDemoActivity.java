@@ -250,7 +250,7 @@ public final class VideoListDemoActivity extends Activity implements OnFullscree
             SharedPreferences sPrefs= PreferenceManager.getDefaultSharedPreferences(VideoListDemoActivity.this);
             Set<String> degerler = sPrefs.getStringSet("degerler", new HashSet<String>());
             for(String v : degerler)
-                ((PageAdapter)listFragment.getListAdapter()).addItem(new VideoEntry("YouTube Collection", v));
+                ((PageAdapter)listFragment.getListAdapter()).addItem(new VideoEntry("İyi eğlenceler :)", v));
         }catch (Exception e){
             e.printStackTrace();
         }

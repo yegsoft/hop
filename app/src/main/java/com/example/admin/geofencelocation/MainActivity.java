@@ -189,7 +189,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     String holdName = dataSnapshot.child("" + i).child("isim").getValue(String.class);
                     double holdLat = dataSnapshot.child("" + i).child("latitude").getValue(double.class);
                     double holdLng = dataSnapshot.child("" + i).child("longitude").getValue(double.class);
-                    Log.d("size"," "+holdLat);
                     Geofence geofence = createGeofence(holdName,holdLat,holdLng);
                     GeofencingRequest geofenceRequest = createGeofenceRequest(geofence);
                     addGeofence(geofenceRequest);
@@ -208,7 +207,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     private static final long GEO_DURATION = 60 * 60 * 1000;
     private static final String GEOFENCE_REQ_ID = "My Geofence";
-    private static final float GEOFENCE_RADIUS = 500.0f; // in meters
+    private static final float GEOFENCE_RADIUS = 30.0f; // in meters
 
     // Create a Geofence
 

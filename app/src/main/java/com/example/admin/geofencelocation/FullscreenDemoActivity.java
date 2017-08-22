@@ -97,6 +97,7 @@ public class FullscreenDemoActivity extends YouTubeFailureRecoveryActivity imple
 
       final String location = getIntent().getExtras().getString("location");
       Log.d("Yusuf", "onCreate: location is " + location);
+      this.player=player;
 
 
 

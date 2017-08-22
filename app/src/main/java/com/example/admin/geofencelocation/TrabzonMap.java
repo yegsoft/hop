@@ -139,8 +139,8 @@ public class TrabzonMap extends AppCompatActivity implements
                 Log.d("LNG"," "+lng);
                 mMap.addMarker(new MarkerOptions()
                         .position(KONUM)
-                        .title("Akçaabat Horonu")
-                        .snippet("Akçaabat")
+                        .title(zone)
+                        .snippet("bölgesinde yeni bir şarkı keşfettiniz")
                         .visible(true));
 
 
