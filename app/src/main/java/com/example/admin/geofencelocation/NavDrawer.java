@@ -26,11 +26,18 @@ public class NavDrawer extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_drawer);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         LocationManager mlocManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         boolean enabled = mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+
+
+
+
 
 
 
