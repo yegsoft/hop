@@ -32,6 +32,8 @@ public class NavDrawer extends AppCompatActivity
         LocationManager mlocManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         boolean enabled = mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 
+
+
         if(!enabled) {
             showDialogGPS();
         }
@@ -138,4 +140,6 @@ public class NavDrawer extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }
