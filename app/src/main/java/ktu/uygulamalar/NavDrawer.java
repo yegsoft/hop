@@ -1,11 +1,10 @@
-package com.example.admin.geofencelocation;
+package ktu.uygulamalar;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -128,17 +127,17 @@ public class NavDrawer extends AppCompatActivity
 
         if (id == R.id.nav_search) {
 
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, GeoMainActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_history) {
 
             Intent intent = new Intent(this, VideoListDemoActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_map) {
 
-            Intent intent = new Intent(this, TrabzonMap.class);
+            Intent intent = new Intent(this, MapActivity.class);
             startActivity(intent);
 
         }

@@ -8,11 +8,11 @@
             android:icon="@drawable/ic_menu_search"
             android:title="Çevreyi tara" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_history"
             android:icon="@drawable/ic_queue_music_black_24dp"
             android:title="Keşfedilen şarkılar" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_map"
             android:icon="@drawable/ic_transfer_within_a_station_black_24dp"
             android:title="En son nerede keşfettim" />
         </menu>

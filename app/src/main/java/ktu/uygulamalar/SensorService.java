@@ -1,4 +1,4 @@
-package com.example.admin.geofencelocation;
+package ktu.uygulamalar;
 
 import android.app.Service;
 import android.content.Context;

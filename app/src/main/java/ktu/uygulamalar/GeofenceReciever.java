@@ -1,4 +1,4 @@
-package com.example.admin.geofencelocation;
+package ktu.uygulamalar;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -9,7 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
@@ -18,7 +17,6 @@ import android.util.Log;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofenceStatusCodes;
 import com.google.android.gms.location.GeofencingEvent;
-import com.google.android.gms.location.GeofencingRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -114,13 +112,13 @@ public class GeofenceReciever extends BroadcastReceiver {
         Log.i(TAG, "sendNotification: " + msg);
 
 
-        Intent notificationIntent = new Intent(contextBootReceiver, TrabzonMap.class);
+        Intent notificationIntent = new Intent(contextBootReceiver, MapActivity.class);
         notificationIntent.putExtra("location", msg);
 
 
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(contextBootReceiver);
-        stackBuilder.addParentStack(MainActivity.class);
+        stackBuilder.addParentStack(GeoMainActivity.class);
         stackBuilder.addNextIntent(notificationIntent);
         PendingIntent notificationPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -135,7 +133,7 @@ public class GeofenceReciever extends BroadcastReceiver {
                 createNotification(msg, notificationPendingIntent));
 
         Intent i = new Intent();
-        i.setClassName("com.example.admin.geofencelocation", "com.example.admin.geofencelocation.DialogActivity");
+        i.setClassName("ktu.uygulamalar", "ktu.uygulamalar.DialogActivity");
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         i.putExtra("alert",msg);
         contextBootReceiver.startActivity(i);

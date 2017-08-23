@@ -1,8 +1,6 @@
-package com.example.admin.geofencelocation;
+package ktu.uygulamalar;
 
 import android.app.ActivityManager;
-import android.app.Dialog;
-import android.app.DownloadManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -32,7 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
+public class GeoMainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener,
         ResultCallback<Status> {
@@ -58,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
 
     public static Intent makeNotificationIntent(Context context, String msg) {
-        Intent intent = new Intent(context, MainActivity.class);
+        Intent intent = new Intent(context, GeoMainActivity.class);
         intent.putExtra(NOTIFICATION_MSG, msg);
         return intent;
     }

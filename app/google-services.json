@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:15699191476:android:d411f622c4238de3",
         "android_client_info": {
-          "package_name": "com.example.admin.geofencelocation"
+          "package_name": "ktu.uygulamalar"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "15699191476-jms1gjhk7citfr47kuag3778ov2n8bnj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.admin.geofencelocation",
+            "package_name": "ktu.uygulamalar",
             "certificate_hash": "f888a25c6ef44c650b192b85d21c110effbd675a"
           }
         },

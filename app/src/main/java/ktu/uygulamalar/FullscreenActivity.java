@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.admin.geofencelocation;
+package ktu.uygulamalar;
 
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -49,7 +49,7 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
  * This is the preferred way of handling fullscreen because the default fullscreen implementation
  * will cause re-buffering of the video.
  */
-public class FullscreenDemoActivity extends YouTubeFailureRecoveryActivity implements
+public class FullscreenActivity extends YouTubeFailureRecoveryActivity implements
     View.OnClickListener,
     CompoundButton.OnCheckedChangeListener,
     YouTubePlayer.OnFullscreenListener {
@@ -125,7 +125,7 @@ public class FullscreenDemoActivity extends YouTubeFailureRecoveryActivity imple
               setControlsEnabled();
               // Specify that we want to handle fullscreen behavior ourselves.
               player.addFullscreenControlFlag(YouTubePlayer.FULLSCREEN_FLAG_CUSTOM_LAYOUT);
-              player.setOnFullscreenListener(FullscreenDemoActivity.this);
+              player.setOnFullscreenListener(FullscreenActivity.this);
 
                   player.cueVideo(oynat);
 
@@ -133,7 +133,7 @@ public class FullscreenDemoActivity extends YouTubeFailureRecoveryActivity imple
               myArrayList.add(oynat);
               int uzunluk=myArrayList.size();
 
-              SharedPreferences sPrefs= PreferenceManager.getDefaultSharedPreferences(FullscreenDemoActivity.this);
+              SharedPreferences sPrefs= PreferenceManager.getDefaultSharedPreferences(FullscreenActivity.this);
               SharedPreferences.Editor sEdit=sPrefs.edit();
 
               String a = myArrayList.get(uzunluk-1);

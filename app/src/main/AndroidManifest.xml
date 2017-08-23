@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.admin.geofencelocation">
+    package="ktu.uygulamalar">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -20,11 +20,11 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name="ktu.uygulamalar.GeoMainActivity">
 
         </activity>
         <activity
-            android:name=".DialogActivity"
+            android:name="ktu.uygulamalar.DialogActivity"
             android:theme="@android:style/Theme.Holo.Light.Dialog">
             <intent-filter>
                 <action android:name="popup"/>
@@ -32,14 +32,14 @@
         </activity>
         <activity
             android:label="@string/videolist_demo_name"
-            android:name=".VideoListDemoActivity"
+            android:name="ktu.uygulamalar.VideoListDemoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="list"/>
             </intent-filter>
         </activity>
         <activity
-            android:name=".NavDrawer"
+            android:name="ktu.uygulamalar.NavDrawer"
             android:label="@string/title_activity_nav_drawer"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -50,7 +50,7 @@
         </activity>
         <activity
             android:label="@string/fullscreen_demo_name"
-            android:name=".FullscreenDemoActivity"
+            android:name="ktu.uygulamalar.FullscreenActivity"
             android:screenOrientation="sensor"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/BlackNoTitleBarTheme">
@@ -60,26 +60,28 @@
         </activity>
 
         <activity
-            android:name=".TrabzonMap"
+            android:name="ktu.uygulamalar.MapActivity"
             android:label="@string/marker_close_info_window_on_retap_demo_label"
             android:theme="@style/AppTheme">
 
         </activity>
 
         <service
-            android:name=".SensorService"
-            android:enabled="true"></service>
+            android:name="ktu.uygulamalar.SensorService"
+            android:enabled="true">
+        </service>
 
         <receiver
-            android:name=".GeofenceReciever"
+            android:name="ktu.uygulamalar.GeofenceReciever"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.aol.android.geofence.ACTION_RECEIVE_GEOFENCE" />
             </intent-filter>
         </receiver>
+
         <receiver
-            android:name=".SensorRestarterBroadcastReceiver"
+            android:name="ktu.uygulamalar.SensorRestarterBroadcastReceiver"
             android:enabled="true"
             android:exported="true"
             android:label="RestartServiceWhenStopped">

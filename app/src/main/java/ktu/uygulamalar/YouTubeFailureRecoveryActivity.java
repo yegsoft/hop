@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package com.example.admin.geofencelocation;
+package ktu.uygulamalar;
 
 import android.content.Intent;
 import android.widget.Toast;
 
+import ktu.uygulamalar.R;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;

@@ -1,4 +1,4 @@
-package com.example.admin.geofencelocation;
+package ktu.uygulamalar;
 
 /**
  * Created by Yusuf on 15.8.2017.
@@ -48,7 +48,7 @@ public class DialogActivity extends Activity implements OnClickListener {
         switch (v.getId()) {
             case R.id.ok_btn_id:
 
-                Intent in = new Intent(this, FullscreenDemoActivity.class);
+                Intent in = new Intent(this, FullscreenActivity.class);
                 String intToSend = message;
                 in.putExtra("location", intToSend);
                 startActivity(in);

@@ -14,18 +14,13 @@
  * limitations under the License.
  */
 
-package com.example.admin.geofencelocation;
+package ktu.uygulamalar;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.util.Log;
 
-import com.google.android.gms.location.Geofence;
-import com.google.android.gms.location.GeofencingRequest;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
@@ -41,16 +36,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import static android.R.attr.value;
-
 /**
  * This shows how to close the info window when the currently selected marker is re-tapped.
  */
-public class TrabzonMap extends AppCompatActivity implements
+public class MapActivity extends AppCompatActivity implements
         OnMarkerClickListener,
         OnMapClickListener,
         OnMapAndViewReadyListener.OnGlobalLayoutAndMapReadyListener {
@@ -178,7 +167,7 @@ public class TrabzonMap extends AppCompatActivity implements
             track=marker.getSnippet();
 
 
-            Intent in = new Intent(this, FullscreenDemoActivity.class);
+            Intent in = new Intent(this, FullscreenActivity.class);
             String intToSend = zone;
             in.putExtra("location", intToSend);
             startActivity(in);

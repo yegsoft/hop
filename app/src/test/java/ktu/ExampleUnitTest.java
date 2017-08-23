@@ -1,4 +1,4 @@
-package com.example.admin.geofencelocation;
+package ktu;
 
 import org.junit.Test;
 

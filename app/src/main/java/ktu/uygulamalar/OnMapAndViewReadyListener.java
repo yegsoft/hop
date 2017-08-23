@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.admin.geofencelocation;
+package ktu.uygulamalar;
 
 import android.annotation.SuppressLint;
 import android.os.Build;
